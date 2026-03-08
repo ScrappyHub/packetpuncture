@@ -96,3 +96,80 @@ proofs/transcripts/pp_full_green_v1/
 ---
 
 # Repository Structure
+
+
+scripts/
+pp_commit_v1.ps1
+pp_pledge_local_v1.ps1
+pp_duplicate_to_nfl_outbox_v1.ps1
+_RUN_pp_full_green_v1.ps1
+
+proofs/
+keys/
+receipts/
+transcripts/
+
+
+---
+
+# Running PacketPuncture
+
+Requirements:
+
+- Windows PowerShell 5.1
+- OpenSSH `ssh-keygen` available on PATH
+
+Execute the deterministic full runner:
+
+scripts/_RUN_pp_full_green_v1.ps1
+
+Successful execution prints:
+
+PP_FULL_GREEN_OK
+
+Artifacts will appear in:
+
+proofs/transcripts/pp_full_green_v1/
+
+---
+
+# Evidence Artifact Model
+
+Each event generates the following artifacts:
+
+1. Event payload
+2. Canonical message for signing
+3. Detached signature
+4. Commitment hash
+5. Append-only receipt entry
+6. Transcript evidence bundle
+
+All artifacts are reproducible and independently verifiable.
+
+---
+
+# Future Work
+
+Planned capabilities:
+
+- standalone verification commands
+- golden deterministic test vectors
+- stress harness for long-running capture
+- packet capture ingestion
+- deterministic replay verification
+
+PacketPuncture is designed to remain a **standalone evidence instrument first**, with optional integration layers added later.
+
+---
+
+# License
+
+TBD
+
+---
+
+# Contributing
+
+The project is currently stabilizing the standalone Tier-0 instrument surface.
+
+Contributions related to deterministic verification, packet ingestion, and evidence tooling will be accepted after Tier-0 is finalized.
