@@ -1,0 +1,31 @@
+name: Repository Sanity Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure docs exist
+        run: |
+          test -f README.md
+          test -f LICENSE
+          test -f CONTRIBUTING.md
+          test -f SECURITY.md
+
+      - name: Ensure docs folder structure
+        run: |
+          test -f docs/ARCHITECTURE.md
+          test -f docs/DETERMINISM_RULES.md
+          test -f docs/EVIDENCE_MODEL.md
+          test -f docs/OVERVIEW.md
+          test -f docs/ROADMAP.md
+          test -f docs/SECURITY_MODEL.md
+          test -f docs/STANDALONE_SCOPE.md
+          test -f docs/TIER0_STATUS.md
